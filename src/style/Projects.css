@@ -91,6 +91,9 @@
     overflow: hidden;
     border-radius: 20px;
 }
+.next-btn{
+    margin-right: 45px;
+}
 
 .project-slides {
     display: flex;
