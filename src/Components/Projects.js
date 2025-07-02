@@ -4,6 +4,7 @@ import southTresor from '../assets/project_img/southtresor.png';
 import riskAssessment from '../assets/project_img/riskassessment.png';
 import bondargo from '../assets/project_img/bondargo.png';
 import ezstore from '../assets/project_img/ezstore.png';
+import profiling from '../assets/project_img/profiling.png'
 import '../style/Projects.css';
 import cssIcon from '../assets/img/css.svg';
 import iconBurpsuite from '../assets/img/burpsuite.svg';
@@ -15,17 +16,16 @@ const Project = () => {
     const [isAutoplay, setIsAutoplay] = useState(true);
 
     const projects = [
-        {
+          {
             id: 1,
-            title: "South Tresor",
-            category: "Web Company Profile",
-            description: "An elegant company profile website for a modern real estate developer, showcasing residential projects, facilities, and services to help clients find their perfect home with ease and confidence.",
-            image: southTresor,
+            title: "Capture The Flag",
+            category: "Cyber Security Project",
+            description: "Participated in comprehensive Capture The Flag cybersecurity competition, successfully solving 10+ challenges across multiple domains including Web Exploitation (identifying SQL injection, command injection, and authentication bypass vulnerabilities), Digital Forensics (analyzing system artifacts and recovering hidden data), and OSINT (gathering intelligence through open-source investigation techniques).",
+            image: require('../assets/project_img/download.webp'),
             color: "teal",
-            techStack : ['HTML','CSS','Bootstrap','Javascript'],
-            bgColor: "linear-gradient(135deg, #4b0f1b 0%, #2d142c 100%)",
-            source : "https://vikoadrian32.github.io/southtresor/"
-
+            bgColor: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            techStack: ['Burpsuite','Linux','Wireshark','Autopsy'],
+            source: '-'
         },
         {
             id: 2,
@@ -39,18 +39,18 @@ const Project = () => {
             bgColor: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
             source : "https://github.com/vikoadrian32/finalproject.git"
         },
-        {
+          {
             id: 3,
-            title: "Risk Assessement",
-            subtitle: "Risk Assessment Website",
+            title: "Profiling Hacker by KEMHAN",
             category: "Cyber Security Project",
-            description: "A web-based Risk Assessment platform designed to evaluate and manage security risks based on the NIST 800 series standards. This tool helps organizations identify vulnerabilities, assess potential impacts, and implement effective mitigation strategies to strengthen their cybersecurity posture.",
-            image: riskAssessment,
-            color: "green",
-            techStack : ['Python','HTML','CSS','Flask','MySQL'],
-            bgColor: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-            source: "https://github.com/vikoadrian32/riskassessmentproject.git"
+            description: "Strategic cybersecurity intelligence project commissioned by the Ministry of Defense (KEMHAN) to conduct comprehensive profiling of hackers in Indonesia using Open Source Intelligence (OSINT) methodologies and advanced data analysis techniques.",
+            image: profiling,
+            color: "orange",
+            bgColor: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
+            techStack : ['OSINT'],
+            source: '-'
         },
+       
         {
             id: 4,
             title: "Bond Argo Limited",
@@ -63,16 +63,32 @@ const Project = () => {
             bgColor: "linear-gradient(135deg, #3e2f1c 0%, #a85b2d 50%, #f2c572 100%)",
             source:"https://vikoadrian32.github.io/bondargo/"
         },
-        // {
-        //     id: 5,
-        //     title: "StudyBuddy",
-        //     subtitle: "Learning companion",
-        //     category: "Mobile app",
-        //     description: "AI-powered study assistant that adapts to your learning style and schedule.",
-        //     image: null,
-        //     color: "orange",
-        //     bgColor: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
-        // }
+         {
+            id: 5,
+            title: "Risk Assessement",
+            subtitle: "Risk Assessment Website",
+            category: "Cyber Security Project",
+            description: "A web-based Risk Assessment platform designed to evaluate and manage security risks based on the NIST 800 series standards. This tool helps organizations identify vulnerabilities, assess potential impacts, and implement effective mitigation strategies to strengthen their cybersecurity posture.",
+            image: riskAssessment,
+            color: "green",
+            techStack : ['Python','HTML','CSS','Flask','MySQL'],
+            bgColor: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+            source: "https://github.com/vikoadrian32/riskassessmentproject.git"
+        },
+      
+        {
+            id: 6,
+            title: "South Tresor",
+            category: "Web Company Profile",
+            description: "An elegant company profile website for a modern real estate developer, showcasing residential projects, facilities, and services to help clients find their perfect home with ease and confidence.",
+            image: southTresor,
+            color: "teal",
+            techStack : ['HTML','CSS','Bootstrap','Javascript'],
+            bgColor: "linear-gradient(135deg, #4b0f1b 0%, #2d142c 100%)",
+            source : "https://vikoadrian32.github.io/southtresor/"
+
+        },
+      
     ];
 
     const techIcons = 
@@ -91,7 +107,8 @@ const Project = () => {
             'Autopsy' : require('../assets/img/icon-autopsy.png'),
             'Bootstrap' : require('../assets/img/icon-bootstrap.png'),
             'Android Studio' : require('../assets/img/icons8-android-studio-48.png'),
-            'Flask' : iconFlask
+            'Flask' : iconFlask,
+            'OSINT' : require('../assets/img/osint-seeklogo.png')
         }
 
     const itemsPerSlide = 3;
