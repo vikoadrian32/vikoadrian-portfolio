@@ -1,10 +1,3 @@
-/* .about img {
-    animation: updown 3s linear infinite;
-    margin-left: 35px;
-    clip-path: shape(from 87.45% 45.02%,curve to 92.48% 56.45% with 90.99% 50.00%,curve to 92.05% 69.35% with 93.97% 62.91%,curve to 82.42% 77.15% with 90.14% 75.80%,curve to 71.01% 83.22% with 74.69% 78.49%,curve to 61.91% 91.53% with 67.33% 87.95%,curve to 49.74% 96.95% with 56.49% 95.12%,curve to 38.70% 91.46% with 42.99% 98.79%,curve to 25.99% 85.79% with 34.41% 84.13%,curve to 15.38% 80.54% with 17.56% 87.44%,curve to 14.30% 66.90% with 13.20% 73.65%,curve to 13.33% 55.08% with 15.41% 60.16%,curve to 11.20% 44.30% with 11.25% 50.00%,curve to 11.95% 32.32% with 11.14% 38.59%,curve to 16.84% 21.25% with 12.75% 26.06%,curve to 27.31% 15.38% with 20.92% 16.44%,curve to 38.83% 11.12% with 33.70% 14.32%,curve to 50.39% 5.23% with 43.95% 7.93%,curve to 62.85% 5.60% with 56.83% 2.53%,curve to 72.70% 14.03% with 68.88% 8.67%,curve to 79.11% 24.51% with 76.53% 19.39%,curve to 82.80% 34.84% with 81.69% 29.63%,curve to 87.45% 45.02% with 83.91% 40.04%);
-  } */
-  /* Enhanced About Me Styles */
-
 .about {
     /* background: linear-gradient(135deg,rgba(0, 0, 0, 1) 0%, rgba(13, 5, 64, 1) 41%); */
     min-height: 100vh;
@@ -43,76 +36,6 @@
     border-radius: 2px;
     animation: slideIn 1s ease-out;
 }
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    padding: 10px 25px;
-    border: 2px solid #6c5ce7;
-    border-radius: 25px;
-    background: transparent;
-    color: #6c5ce7;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background: #6c5ce7;
-    color: white;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 0 20px;
-}
-
-.skill-card-item {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.skill-icon-wrapper {
-    margin-bottom: 15px;
-}
-
-.skill-icon-img {
-    width: 50px;
-    height: 50px;
-    margin-left: 40%;
-}
-.skill-icon-images {
-    margin-left: 38%;
-}
-
-.skill-name {
-    color: white;
-    margin-bottom: 10px;
-}
-
-.skill-category {
-    color: #a0a0a0;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.skill-description p {
-    color: white;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-
 
 /* Image Container Styles */
 .about-image-container {
@@ -212,6 +135,7 @@
     right: 5%;
     animation-delay: 2s;
 }
+
 .icon-4 {
     top: 2%;
     left: -15%;
@@ -329,6 +253,172 @@
     margin-bottom: 2rem;
 }
 
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid #6c5ce7;
+    border-radius: 25px;
+    background: transparent;
+    color: #6c5ce7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #6c5ce7;
+    color: white;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.skill-card-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.2);
+}
+
+.skill-icon-wrapper {
+    margin-bottom: 15px;
+}
+
+.skill-icon-img {
+    width: 50px;
+    height: 50px;
+    margin-left: 40%;
+    transition: transform 0.3s ease;
+}
+
+.skill-icon-img:hover {
+    transform: scale(1.2);
+}
+
+.skill-icon-images {
+    margin-left: 38%;
+}
+
+.skill-name {
+    color: white;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.skill-category {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.skill-description p {
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Marquee Styles */
+.marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 35s linear infinite;
+}
+
+.marquee-item {
+    flex: 0 0 auto;
+    width: 250px;
+    margin-right: 30px;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.marquee-item img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.marquee-item img:hover {
+    transform: scale(1.2);
+}
+
+.marquee-item p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Custom Pagination Styles */
+.custom-pagination {
+    --bs-pagination-padding-x: 0.75rem;
+    --bs-pagination-padding-y: 0.5rem;
+    --bs-pagination-font-size: 0.875rem;
+    --bs-pagination-color: #fff;
+    --bs-pagination-bg: rgba(255, 255, 255, 0.1);
+    --bs-pagination-border-width: 1px;
+    --bs-pagination-border-color: rgba(255, 255, 255, 0.2);
+    --bs-pagination-border-radius: 0.5rem;
+    --bs-pagination-hover-color: #fff;
+    --bs-pagination-hover-bg: rgba(108, 92, 231, 0.8);
+    --bs-pagination-hover-border-color: #6c5ce7;
+    --bs-pagination-focus-color: #fff;
+    --bs-pagination-focus-bg: rgba(108, 92, 231, 0.8);
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: #6c5ce7;
+    --bs-pagination-active-border-color: #6c5ce7;
+    --bs-pagination-disabled-color: rgba(255, 255, 255, 0.5);
+    --bs-pagination-disabled-bg: rgba(255, 255, 255, 0.05);
+    --bs-pagination-disabled-border-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
+}
+
+.custom-pagination .page-link {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.custom-pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #6c5ce7, #74b9ff);
+    border-color: #6c5ce7;
+    box-shadow: 0 4px 8px rgba(108, 92, 231, 0.3);
+}
+
+.custom-pagination .page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 92, 231, 0.2);
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* Animations */
 @keyframes slideIn {
     from { width: 0; }
@@ -345,6 +435,15 @@
     51%, 100% { opacity: 0; }
 }
 
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 @keyframes shimmer {
     0% { left: -100%; }
     100% { left: 100%; }
@@ -357,7 +456,7 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Responsive Design */
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
     .about h1 {
         font-size: 2.5rem;
@@ -395,78 +494,207 @@
     }
 }
 
-
-.marquee-container {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  
-  .marquee-content {
-    display: flex;
-    width: max-content;
-    animation: scroll-left 35s linear infinite;
-  }
-  
-  .marquee-item {
-    flex: 0 0 auto;
-    width: 250px;
-    margin-right: 30px;
-    padding-top: 10px;
-    text-align: center;
-    color: white;
-  }
-  
-  .marquee-item img {
-    width: 60px;
-    height: 60px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .marquee-item img:hover {
-    transform: scale(1.2);
-  }
-  /* .marquee-container:hover .marquee-content {
-    animation-play-state: paused;
-  }
-   */
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
+/* Mobile Skills Grid and Pagination - 310px to 950px */
+@media (min-width: 310px) and (max-width: 950px) {
+    /* Hide desktop marquee on mobile */
+    .marquee-container {
+        display: none;
     }
-    100% {
-      transform: translateX(-50%);
+    
+    /* Mobile Skills Grid - 2 skills per row */
+    .skills-grid.mobile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
     }
-  }
-
-  @media (min-width: 310px) and (max-width: 950px) {
-    .skill-section {
-      padding: 60px 15px;
-      min-height: 50vh;
+    
+    .skill-card-item {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 20px 15px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-  
-    .skill-section h2 {
-      font-size: 36px;
-      margin-bottom: 50px;
+    
+    .skill-card-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
     }
-  
-    .skill-section h2::after {
-      width: 80px;
-      height: 3px;
+    
+    .skill-icon-wrapper {
+        margin-bottom: 10px;
     }
-  
+    
+    .skill-icon-img {
+        width: 40px;
+        height: 40px;
+        margin-left: 0;
+    }
+    
+    .skill-name {
+        color: white;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .skill-description p {
+        color: white;
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin: 0;
+        text-align: center;
+        line-height: 1.3;
+    }
+    
+    /* Skills section spacing adjustments */
+    .skills-section {
+        padding: 1.5rem;
+    }
+    
+    .skills-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .filter-buttons {
+        margin-bottom: 1.5rem;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+        margin: 2px;
+    }
+    
+    /* Show pagination only on mobile */
+    .custom-pagination {
+        display: flex !important;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+    
+    /* Other mobile adjustments */
     .marquee-item {
-      width: 150px;
-      margin-right: 20px;
+        width: 80px;
+        margin-right: 20px;
     }
-  
+    
     .marquee-item img {
-      width: 50px;
-      height: 50px;
+        width: 50px;
+        height: 50px;
     }
-    .marquee-container:hover .marquee-content {
-      animation-play-state: running;
+    
+    .marquee-item h5 {
+        font-size: 0.8rem;
     }
-  }
-  
-  
+    
+    .marquee-item p {
+        font-size: 0.6rem;
+        opacity: 0.8;
+    }
+    
+    /* Image About adjustments */
+    .image-wrapper {
+        right: 0px;
+        width: 250px;
+        height: 300px;
+    }
+    
+    .image-overlay {
+        transform: translateY(0);
+        background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+        padding: 30px 20px 10px;
+    }
+    
+    .image-wrapper:hover .image-overlay {
+        transform: none;
+    }
+    
+    .overlay-content h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .overlay-content p {
+        margin: 5px 0 0;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+    
+    /* Floating Elements adjustments */
+    .floating-icon {
+        font-size: 2rem;
+    }
+    
+    .icon-1, .icon-3 {
+        right: 1.5%;
+    }
+    
+    .icon-2, .icon-4 {
+        left: 5%;
+    }
+    
+    .typewriter-text {
+        font-size: 1.5rem;
+    }
+    
+    .skill-icon-images {
+        margin-left: 20%;
+    }
+}
+
+/* Hide pagination on desktop */
+@media (min-width: 951px) {
+    .custom-pagination {
+        display: none !important;
+    }
+}
+
+/* Very small screens pagination adjustments */
+@media (max-width: 480px) {
+    .custom-pagination {
+        --bs-pagination-padding-x: 0.5rem;
+        --bs-pagination-padding-y: 0.35rem;
+        --bs-pagination-font-size: 0.75rem;
+    }
+    
+    .custom-pagination .page-link {
+        min-width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .skills-grid.mobile-grid {
+        gap: 10px;
+    }
+    
+    .skill-card-item {
+        padding: 15px 10px;
+        min-height: 130px;
+    }
+    
+    .skill-icon-img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .skill-name {
+        font-size: 0.8rem;
+    }
+    
+    .skill-description p {
+        font-size: 0.7rem;
+    }
+}

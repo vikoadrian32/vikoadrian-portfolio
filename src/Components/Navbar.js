@@ -4,6 +4,7 @@ import navIcon1 from '../assets/img/nav-icon1.svg'
 import navIcon2 from '../assets/img/gmail.svg'
 import navIcon3 from '../assets/img/nav-icon3.svg'
 
+
 const NavigationBar = () =>{
     const [activeLink,setActiveLink] = useState('home')
 
@@ -18,7 +19,7 @@ const NavigationBar = () =>{
             }
         }
         window.addEventListener('scroll',onScroll)
-        return window.removeEventListener('scroll',onScroll)
+        return ()=> window.removeEventListener('scroll',onScroll)
     },[])
 
       const onUpdateActiveLink = (value)=>{

@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Pagination } from "react-bootstrap";
 import { useState, useEffect, useRef } from "react";
 import aboutImage from '../assets/img/portoprofile.jpg'
 import '../style/About.css'
@@ -9,13 +9,15 @@ import NodeJS from '../assets/img/nodejs.svg';
 import Express from '../assets/img/express.svg';
 import MetaSploit from '../assets/img/metasploit.svg';
 
-const AboutMe = () => {
+const About = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [typedText, setTypedText] = useState("");
     const iRef = useRef(0);
     const hasTyped = useRef(false);
     const [activeFilter, setActiveFilter] = useState('all');
-
+    const [isMobile, setIsMobile] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const skillsPerPage = 6; // 3 rows × 2 skills per row
 
     
     const allSkills = [
@@ -40,10 +42,33 @@ const AboutMe = () => {
         { name: 'Metasploit' , description : 'Penetration Testing Framework' , icon : MetaSploit , category:'cybersecurity'}
     ];
 
+    // Check if mobile view
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth >= 310 && window.innerWidth <= 950);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
+    // Filter skills based on active filter
     const filteredSkills = activeFilter === 'all' 
-    ? allSkills 
-    : allSkills.filter(skill => skill.category === activeFilter);
+        ? allSkills 
+        : allSkills.filter(skill => skill.category === activeFilter);
+
+    // Calculate pagination
+    const totalPages = Math.ceil(filteredSkills.length / skillsPerPage);
+    const startIndex = (currentPage - 1) * skillsPerPage;
+    const endIndex = startIndex + skillsPerPage;
+    const currentSkills = isMobile ? filteredSkills.slice(startIndex, endIndex) : filteredSkills;
+
+    // Reset to page 1 when filter changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [activeFilter]);
 
     const typewriterText = "Passionate Developer & Security Enthusiast";
 
@@ -87,9 +112,37 @@ const AboutMe = () => {
         }
     }, [isVisible]);
 
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
+    const renderPagination = () => {
+        if (!isMobile || totalPages <= 1) return null;
 
-
+        return (
+            <div className="d-flex justify-content-center mt-4">
+                <Pagination className="custom-pagination">
+                    <Pagination.Prev 
+                        disabled={currentPage === 1}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                    />
+                    {Array.from({ length: totalPages }, (_, i) => (
+                        <Pagination.Item
+                            key={i + 1}
+                            active={i + 1 === currentPage}
+                            onClick={() => handlePageChange(i + 1)}
+                        >
+                            {i + 1}
+                        </Pagination.Item>
+                    ))}
+                    <Pagination.Next 
+                        disabled={currentPage === totalPages}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                    />
+                </Pagination>
+            </div>
+        );
+    };
 
     return (
         <section id="about" className="about">
@@ -171,19 +224,23 @@ const AboutMe = () => {
                     <Col>
                         <div className={`skills-section ${isVisible ? 'fade-in' : ''}`}>
                             <h3 className="skills-title text-center mb-4">Technical Skills</h3>
-                           <Row className="justify-content-center">
-                                <div className="marquee-container">
-                                    <div className="marquee-content">
-                                    {[...allSkills, ...allSkills].map((tool, index) => (
-                                        <div key={index} className="marquee-item">
-                                        <img src={tool.icon} alt={tool.name} className="skill-icon-images" />
-                                        <h5 className="text-white mt-2 mb-1">{tool.name}</h5>
-                                        <p className="text-white" style={{ fontSize: '0.9rem' ,opacity:'0.8' }}>{tool.description}</p>
+                           
+                           {/* Desktop Marquee - Hide on mobile */}
+                           {!isMobile && (
+                               <Row className="justify-content-center">
+                                    <div className="marquee-container">
+                                        <div className="marquee-content">
+                                        {[...allSkills, ...allSkills].map((tool, index) => (
+                                            <div key={index} className="marquee-item">
+                                                <img src={tool.icon} alt={tool.name} className="skill-icon-images" />
+                                                <h5 className="text-white mt-2 mb-1">{tool.name}</h5>
+                                                <p className="text-white">{tool.description}</p>
+                                            </div>
+                                        ))}
                                         </div>
-                                    ))}
                                     </div>
-                                </div>
-                            </Row>
+                                </Row>
+                           )}
 
                             <Row className="mt-5">
                                 <div className="skills-categories w-100">
@@ -218,11 +275,17 @@ const AboutMe = () => {
                                         >
                                             Mobile
                                         </button>
+                                        <button 
+                                            className={`filter-btn ${activeFilter === 'tools' ? 'active' : ''}`}
+                                            onClick={() => setActiveFilter('tools')}
+                                        >
+                                            Tools
+                                        </button>
                                     </div>
 
                                     {/* Skills Cards */}
-                                    <div className="skills-grid">
-                                        {filteredSkills.map((skill, index) => (
+                                    <div className={`skills-grid ${isMobile ? 'mobile-grid' : ''}`}>
+                                        {currentSkills.map((skill, index) => (
                                             <div key={index} className="skill-card-item">
                                                 <div className="skill-icon-wrapper">
                                                     <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
@@ -234,28 +297,17 @@ const AboutMe = () => {
                                             </div>
                                         ))}
                                     </div>
+
+                                    {/* Pagination - Only show on mobile */}
+                                    {renderPagination()}
                                 </div>
                             </Row>
                         </div>
                     </Col>
                 </Row>
-
-                {/* Call to Action */}
-                {/* <Row className="mt-5">
-                    <Col className="text-center">
-                        <div className={`cta-section ${isVisible ? 'bounce-in' : ''}`}>
-                            <h4 className="cta-title">Let's Build Something Amazing Together!</h4>
-                            <p className="cta-subtitle">Ready to bring your ideas to life with secure and innovative solutions.</p>
-                            <button className="cta-button">
-                                <span>Get In Touch</span>
-                                <div className="button-ripple"></div>
-                            </button>
-                        </div>
-                    </Col>
-                </Row> */}
             </Container>
         </section>
     );
 }
 
-export default AboutMe;
+export default About;

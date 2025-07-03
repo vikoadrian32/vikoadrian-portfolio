@@ -535,8 +535,10 @@ nav.navbar {
   transition:  0.32s ease-in-out;
 }
 nav.navbar.scrolled {
-  padding: 0px 0;
-  background-color: #121212;
+  padding: 8px 0;
+  background-color: rgba(18, 18, 18, 0.9); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(4px); 
 }
 nav.navbar a.navbar-brand {
     width: 9%;
