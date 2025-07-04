@@ -308,6 +308,12 @@
     margin-left: 40%;
     transition: transform 0.3s ease;
 }
+.skill-icon-img2 {
+    width: 50px;
+    height: 50px;
+    margin-left: 46%;
+    transition: transform 0.3s ease;
+}
 
 .skill-icon-img:hover {
     transform: scale(1.2);
@@ -537,6 +543,13 @@
         width: 40px;
         height: 40px;
         margin-left: 0;
+    }
+    .skill-icon-img2 {
+        /* width: 50px;
+        height: 50px; */
+        margin-left: 8%;
+        width: 40px;
+        height: 40px;
     }
     
     .skill-name {

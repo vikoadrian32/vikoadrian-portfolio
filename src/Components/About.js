@@ -64,23 +64,24 @@ const About = () => {
     // Memoize allSkills untuk mencegah re-creation
     const allSkills = useMemo(() => [
         { name: 'HTML', description: 'Markup Language', icon: require('../assets/img/icon-html.png'), category: 'frontend' },
-        { name: 'CSS', description: 'Cascading Style Sheets', icon:iconcss, category: 'frontend'},
+        { name: 'CSS', description: 'Cascading Style Sheets', icon:iconcss, category: 'frontend' },
         { name: 'Bootstrap', description: 'CSS Framework', icon: require('../assets/img/icon-bootstrap.png'), category: 'frontend' },
         { name: 'React', description: 'Frontend Library', icon: require('../assets/img/icon-react.png'), category: 'frontend' },
         { name: 'PHP', description: 'Backend Scripting', icon: require('../assets/img/icon-php.png'), category: 'backend' },
-        { name: 'Laravel', description: 'PHP Framework', icon: require('../assets/img/icons8-laravel-48.png'), category: 'backend' },
+        { name: 'Laravel', description: 'PHP Framework', icon: require('../assets/img/icons8-laravel-48.png'), category: 'backend'},
         { name: 'Node.js', description: 'JavaScript Runtime', icon: iconnodeJS, category: 'backend' },
-        { name: 'Express.js', description: 'Node.js Framework', icon:iconexpressJS, category: 'backend' },
+        {name : 'Javascript' , description : 'Programming Language' , icon : require('../assets/img/icon-js.png'),category: 'frontend'},
+        { name: 'Express.js', description: 'Node.js Framework', icon:iconexpressJS, category: 'backend'},
         { name: 'Python', description: 'Backend & Automation', icon: require('../assets/img/icon-python.png'), category: 'backend' },
         { name: 'MySQL', description: 'Relational Database', icon: require('../assets/img/icons8-mysql-48.png'), category: 'backend' },
         { name: 'Java', description: 'Programming Language', icon: require('../assets/img/icon-java.png'), category: 'mobile' },
         { name: 'Android Studio', description: 'Mobile Development IDE', icon: require('../assets/img/icons8-android-studio-48.png'), category: 'mobile' },
-        { name: 'Wireshark', description: 'Network Analyzer', icon: iconwireshark, category: 'cybersecurity' },
+        { name: 'Wireshark', description: 'Network Analyzer', icon: iconwireshark, category: 'cybersecurity'},
         { name: 'Linux', description: 'Operating System', icon: require('../assets/img/icon-linux.png'), category: 'cybersecurity' },
         { name: 'Burpsuite', description: 'Security Testing', icon: iconburpsuite, category: 'cybersecurity' },
         { name: 'Autopsy', description: 'Digital Forensics', icon: require('../assets/img/icon-autopsy.png'), category: 'cybersecurity' },
         { name: 'PostgreSQL', description: 'Relational Database', icon: require('../assets/img/icons8-postgresql-50.png'), category: 'backend' },
-        { name: 'Github', description: 'Version Control Platform', icon: require('../assets/img/icons8-github-64.png'), category: 'tools' },
+        // { name: 'Github', description: 'Version Control Platform', icon: require('../assets/img/icons8-github-64.png'), category: 'tools'},
         { name: 'Metasploit', description: 'Penetration Testing Framework', icon: iconmetasploit, category: 'cybersecurity' }
     ], []);
 
@@ -352,12 +353,7 @@ const About = () => {
                                         >
                                             Mobile
                                         </button>
-                                        <button 
-                                            className={`filter-btn ${activeFilter === 'tools' ? 'active' : ''}`}
-                                            onClick={() => handleFilterChange('tools')}
-                                        >
-                                            Tools
-                                        </button>
+
                                     </div>
 
                                     {/* Skills Cards */}
@@ -368,7 +364,7 @@ const About = () => {
                                                     <LazyImage 
                                                         src={skill.icon} 
                                                         alt={skill.name} 
-                                                        className="skill-icon-img" 
+                                                        className={activeFilter === 'mobile' ? 'skill-icon-img2' : 'skill-icon-img' }
                                                     />
                                                 </div>
                                                 <h5 className="skill-name">{skill.name}</h5>
