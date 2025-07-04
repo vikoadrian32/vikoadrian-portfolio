@@ -1,8 +1,8 @@
-/************ Banner Css ************/
-.banner {
+/* *********** Banner Css *********** */
+
+/* .banner {
     margin-top: 0;
     padding: 190px 0 100px 0;
-    /* background-image: url('../assets/img/background.jpg'); */
     background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,7 +11,6 @@
     font-weight: 700;
     letter-spacing: 0.8px;
     padding: 8px 10px;
-    /* background: linear-gradient(90.21deg, rgba(13, 13, 13, 1) -5.91%, rgba(74, 47, 189, 0.5) 111.58%); */
     border: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 20px;
     margin-bottom: 16px;
@@ -84,10 +83,174 @@
     }
   }
   
-  
+   */
 
 
   
   
   
+  /************ Banner Css - Optimized ************/
+.banner {
+  margin-top: 0;
+  padding: 190px 0 100px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Menggunakan will-change untuk optimasi */
+  will-change: transform;
+}
+
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.banner h1 {
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.banner p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+}
+
+.banner button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  /* Optimasi untuk animasi */
+  transition: transform 0.3s ease-in-out;
+}
+
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: margin-left 0.3s ease-in-out;
+  line-height: 1;
+  /* Menggunakan transform untuk animasi yang lebih smooth */
+  transform: translateX(0);
+  will-change: transform;
+}
+
+.banner button:hover svg {
+  /* Menggunakan transform daripada margin untuk performa lebih baik */
+  transform: translateX(15px);
+}
+
+/* Container untuk gambar */
+.image-container {
+  position: relative;
+  /* Menggunakan will-change untuk optimasi animasi */
+  will-change: transform;
+}
+
+.banner img {
+  /* Menggunakan transform untuk animasi yang lebih efisien */
+  animation: updown 3s ease-in-out infinite;
+  margin-left: 35px;
   
+  /* Clip-path yang lebih sederhana untuk mobile */
+  clip-path: shape(from 87.45% 45.02%,curve to 92.48% 56.45% with 90.99% 50.00%,curve to 92.05% 69.35% with 93.97% 62.91%,curve to 82.42% 77.15% with 90.14% 75.80%,curve to 71.01% 83.22% with 74.69% 78.49%,curve to 61.91% 91.53% with 67.33% 87.95%,curve to 49.74% 96.95% with 56.49% 95.12%,curve to 38.70% 91.46% with 42.99% 98.79%,curve to 25.99% 85.79% with 34.41% 84.13%,curve to 15.38% 80.54% with 17.56% 87.44%,curve to 14.30% 66.90% with 13.20% 73.65%,curve to 13.33% 55.08% with 15.41% 60.16%,curve to 11.20% 44.30% with 11.25% 50.00%,curve to 11.95% 32.32% with 11.14% 38.59%,curve to 16.84% 21.25% with 12.75% 26.06%,curve to 27.31% 15.38% with 20.92% 16.44%,curve to 38.83% 11.12% with 33.70% 14.32%,curve to 50.39% 5.23% with 43.95% 7.93%,curve to 62.85% 5.60% with 56.83% 2.53%,curve to 72.70% 14.03% with 68.88% 8.67%,curve to 79.11% 24.51% with 76.53% 19.39%,curve to 82.80% 34.84% with 81.69% 29.63%,curve to 87.45% 45.02% with 83.91% 40.04%);
+  
+  /* Optimasi untuk rendering */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Animasi yang lebih ringan */
+@keyframes updown {
+  0%, 100% {
+      transform: translateY(-10px) translateZ(0);
+  }
+  50% {
+      transform: translateY(10px) translateZ(0);
+  }
+}
+
+/* Media queries untuk mobile optimization */
+@media (max-width: 768px) {
+  .banner {
+      padding: 120px 0 80px 0;
+  }
+  
+  .banner .tagline {
+      margin-top: 30px;
+      font-size: 18px;
+  }
+  
+  .banner h1 {
+      font-size: 36px;
+  }
+  
+  .banner p {
+      font-size: 16px;
+      width: 100%;
+  }
+  
+  .banner button {
+      margin-top: 40px;
+      font-size: 18px;
+  }
+  
+  .banner img {
+       clip-path: shape(from 87.45% 45.02%,curve to 92.48% 56.45% with 90.99% 50.00%,curve to 92.05% 69.35% with 93.97% 62.91%,curve to 82.42% 77.15% with 90.14% 75.80%,curve to 71.01% 83.22% with 74.69% 78.49%,curve to 61.91% 91.53% with 67.33% 87.95%,curve to 49.74% 96.95% with 56.49% 95.12%,curve to 38.70% 91.46% with 42.99% 98.79%,curve to 25.99% 85.79% with 34.41% 84.13%,curve to 15.38% 80.54% with 17.56% 87.44%,curve to 14.30% 66.90% with 13.20% 73.65%,curve to 13.33% 55.08% with 15.41% 60.16%,curve to 11.20% 44.30% with 11.25% 50.00%,curve to 11.95% 32.32% with 11.14% 38.59%,curve to 16.84% 21.25% with 12.75% 26.06%,curve to 27.31% 15.38% with 20.92% 16.44%,curve to 38.83% 11.12% with 33.70% 14.32%,curve to 50.39% 5.23% with 43.95% 7.93%,curve to 62.85% 5.60% with 56.83% 2.53%,curve to 72.70% 14.03% with 68.88% 8.67%,curve to 79.11% 24.51% with 76.53% 19.39%,curve to 82.80% 34.84% with 81.69% 29.63%,curve to 87.45% 45.02% with 83.91% 40.04%);
+      animation: updown 4s ease-in-out infinite;
+      margin-left: 0;
+  }
+}
+
+/* Untuk perangkat dengan performa rendah */
+@media (max-width: 480px) {
+  .banner h1 {
+      font-size: 32px;
+  }
+  
+  .banner img {
+      /* Matikan animasi pada perangkat sangat kecil */
+      animation: none;
+      /* Atau gunakan animasi yang sangat ringan */
+      /* animation: updown 6s ease-in-out infinite; */
+  }
+}
+
+/* Reduce motion untuk accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .banner img {
+      animation: none;
+  }
+  
+  .banner button svg {
+      transition: none;
+  }
+  
+  .banner button:hover svg {
+      transform: translateX(10px);
+  }
+}
+
+/* Optimasi untuk layar high-DPI */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .banner img {
+      /* Gunakan rendering yang lebih efisien */
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+  }
+}
