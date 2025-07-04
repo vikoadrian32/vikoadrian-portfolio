@@ -2,6 +2,12 @@ import { Col, Container, Row, Pagination } from "react-bootstrap";
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import aboutImage from '../assets/img/portoprofile.jpg'
 import '../style/About.css'
+import iconnodeJS from '../assets/img/nodejs.svg';
+import iconexpressJS from '../assets/img/express.svg';
+import iconmetasploit from '../assets/img/metasploit.svg';
+import iconwireshark from '../assets/img/wireshark.svg';
+import iconburpsuite from '../assets/img/burpsuite.svg';
+import iconcss from '../assets/img/css.svg';
 
 // Lazy load images untuk skills
 const LazyImage = ({ src, alt, className }) => {
@@ -58,24 +64,24 @@ const About = () => {
     // Memoize allSkills untuk mencegah re-creation
     const allSkills = useMemo(() => [
         { name: 'HTML', description: 'Markup Language', icon: require('../assets/img/icon-html.png'), category: 'frontend' },
-        { name: 'CSS', description: 'Cascading Style Sheets', icon: require('../assets/img/css.svg'), category: 'frontend'},
+        { name: 'CSS', description: 'Cascading Style Sheets', icon:iconcss, category: 'frontend'},
         { name: 'Bootstrap', description: 'CSS Framework', icon: require('../assets/img/icon-bootstrap.png'), category: 'frontend' },
         { name: 'React', description: 'Frontend Library', icon: require('../assets/img/icon-react.png'), category: 'frontend' },
         { name: 'PHP', description: 'Backend Scripting', icon: require('../assets/img/icon-php.png'), category: 'backend' },
         { name: 'Laravel', description: 'PHP Framework', icon: require('../assets/img/icons8-laravel-48.png'), category: 'backend' },
-        { name: 'Node.js', description: 'JavaScript Runtime', icon: require('../assets/img/nodejs.svg'), category: 'backend' },
-        { name: 'Express.js', description: 'Node.js Framework', icon: require('../assets/img/express.svg'), category: 'backend' },
+        { name: 'Node.js', description: 'JavaScript Runtime', icon: iconnodeJS, category: 'backend' },
+        { name: 'Express.js', description: 'Node.js Framework', icon:iconexpressJS, category: 'backend' },
         { name: 'Python', description: 'Backend & Automation', icon: require('../assets/img/icon-python.png'), category: 'backend' },
         { name: 'MySQL', description: 'Relational Database', icon: require('../assets/img/icons8-mysql-48.png'), category: 'backend' },
         { name: 'Java', description: 'Programming Language', icon: require('../assets/img/icon-java.png'), category: 'mobile' },
         { name: 'Android Studio', description: 'Mobile Development IDE', icon: require('../assets/img/icons8-android-studio-48.png'), category: 'mobile' },
-        { name: 'Wireshark', description: 'Network Analyzer', icon: require('../assets/img/wireshark.svg'), category: 'cybersecurity' },
+        { name: 'Wireshark', description: 'Network Analyzer', icon: iconwireshark, category: 'cybersecurity' },
         { name: 'Linux', description: 'Operating System', icon: require('../assets/img/icon-linux.png'), category: 'cybersecurity' },
-        { name: 'Burpsuite', description: 'Security Testing', icon: require('../assets/img/burpsuite.svg'), category: 'cybersecurity' },
+        { name: 'Burpsuite', description: 'Security Testing', icon: iconburpsuite, category: 'cybersecurity' },
         { name: 'Autopsy', description: 'Digital Forensics', icon: require('../assets/img/icon-autopsy.png'), category: 'cybersecurity' },
         { name: 'PostgreSQL', description: 'Relational Database', icon: require('../assets/img/icons8-postgresql-50.png'), category: 'backend' },
         { name: 'Github', description: 'Version Control Platform', icon: require('../assets/img/icons8-github-64.png'), category: 'tools' },
-        { name: 'Metasploit', description: 'Penetration Testing Framework', icon: require('../assets/img/metasploit.svg'), category: 'cybersecurity' }
+        { name: 'Metasploit', description: 'Penetration Testing Framework', icon: iconmetasploit, category: 'cybersecurity' }
     ], []);
 
     // Debounce resize handler
