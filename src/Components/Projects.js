@@ -12,8 +12,20 @@ import iconWireshark from '../assets/img/wireshark.svg';
 import iconFlask from '../assets/img/flask.svg';
 
 const Project = () => {
+    const getItemsPerSlide = () => {
+        const screenWidth = window.innerWidth;
+        
+        if (screenWidth <= 950) {
+            return 1; // Mobile: 1 project per slide
+        } else if (screenWidth <= 1200) {
+            return 2; // Tablet: 2 projects per slide
+        } else {
+            return 3; // Desktop: 3 projects per slide
+        }
+    };
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isAutoplay, setIsAutoplay] = useState(true);
+    const [itemsPerSlide, setItemsPerSlide] = useState(getItemsPerSlide());
 
     const projects = [
           {
@@ -111,17 +123,35 @@ const Project = () => {
             'OSINT' : require('../assets/img/osint-seeklogo.png')
         }
 
-    const itemsPerSlide = 3;
-    const totalSlides = Math.ceil(projects.length / itemsPerSlide);
+    // const itemsPerSlide = 3;
+    const totalSlides = Math.ceil(projects.length / itemsPerSlide)
+    // const totalSlides = Math.ceil(projects.length / itemsPerSlide);
 
+    // useEffect(() => {
+    //     if (isAutoplay) {
+    //         const interval = setInterval(() => {
+    //             setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    //         }, 5000);
+    //         return () => clearInterval(interval);
+    //     }
+    // }, [isAutoplay, totalSlides]);
     useEffect(() => {
-        if (isAutoplay) {
-            const interval = setInterval(() => {
-                setCurrentSlide((prev) => (prev + 1) % totalSlides);
-            }, 5000);
-            return () => clearInterval(interval);
-        }
-    }, [isAutoplay, totalSlides]);
+        const handleResize = () => {
+            const newItemsPerSlide = getItemsPerSlide();
+            if (newItemsPerSlide !== itemsPerSlide) {
+                setItemsPerSlide(newItemsPerSlide);
+                // Reset ke slide pertama saat resize untuk menghindari error
+                setCurrentSlide(0);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        
+        // Initial call untuk set correct value
+        handleResize();
+        
+        return () => window.removeEventListener('resize', handleResize);
+    }, [itemsPerSlide]);
 
     const nextSlide = () => {
         setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -134,6 +164,15 @@ const Project = () => {
     const goToSlide = (index) => {
         setCurrentSlide(index);
     };
+
+    useEffect(() => {
+        if (isAutoplay && totalSlides > 1) {
+            const interval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+            return () => clearInterval(interval);
+        }
+    }, [isAutoplay, currentSlide, totalSlides]);
 
     return (
         <Container fluid className="project-wrapper" id="projects">
@@ -172,8 +211,7 @@ const Project = () => {
                 <div 
                     className="project-carousel"
                     onMouseEnter={() => setIsAutoplay(false)}
-                    onMouseLeave={() => setIsAutoplay(true)}
-                >
+                    onMouseLeave={() => setIsAutoplay(true)}>
                     <div 
                         className="project-slides"
                         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
