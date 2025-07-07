@@ -236,7 +236,7 @@ const About = () => {
                                 <div className="image-overlay">
                                     <div className="overlay-content">
                                         <h4>Viko Adrian</h4>
-                                        <p>Full Stack Developer</p>
+                                        <p>Web Developer | Security</p>
                                     </div>
                                 </div>
                             </div>
