@@ -29,7 +29,6 @@ function App() {
       <Project/>
       <Contact/>
       {!isMobile && <FloatingCTFTerminal/>}
-      {/* <FloatingCTFTerminal/> */}
     </div>
   );
 }

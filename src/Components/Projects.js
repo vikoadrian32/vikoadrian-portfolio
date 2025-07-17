@@ -5,11 +5,13 @@ import riskAssessment from '../assets/project_img/riskassessment.png';
 import bondargo from '../assets/project_img/bondargo.png';
 import ezstore from '../assets/project_img/ezstore.png';
 import profiling from '../assets/project_img/profiling.png'
+import dvdstore from '../assets/project_img/dvdstore.png'
 import '../style/Projects.css';
 import cssIcon from '../assets/img/css.svg';
 import iconBurpsuite from '../assets/img/burpsuite.svg';
 import iconWireshark from '../assets/img/wireshark.svg';
 import iconFlask from '../assets/img/flask.svg';
+
 
 const Project = () => {
     const getItemsPerSlide = () => {
@@ -98,8 +100,18 @@ const Project = () => {
             techStack : ['HTML','CSS','Bootstrap','Javascript'],
             bgColor: "linear-gradient(135deg, #4b0f1b 0%, #2d142c 100%)",
             source : "https://vikoadrian32.github.io/southtresor/"
-
         },
+        {
+            id:7,
+            title : "DVD Store",
+            category : 'Server Side Website',
+            description : "DVD Store is a simple server-side CRUD application built with PHP (Laravel) and MySQL. This project allows users to manage DVD collections, including creating, reading, updating, and deleting DVD data. It showcases basic server-side operations, MVC pattern implementation, and database interaction using Laravel’s Eloquent ORM. Ideal for learning backend web development and CRUD functionality in a Laravel environment",
+            image : dvdstore,
+            color : 'blue',
+            techStack : ['PHP','Laravel','MySQL'],
+            bgColor: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            source : "https://github.com/vikoadrian32/DVD_STORE-Server-Side-Project-.git"
+        }
       
     ];
 
