@@ -7,9 +7,20 @@ import Project from './Components/Projects';
 import Contact from './Components/Contact'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FloatingCTFTerminal from './Components/FloatingTerminal';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+
+  const [isMobile,setIsMobile] = useState(false);
+  useEffect(()=>{
+    const checkIsMobile = ()=>setIsMobile(window.innerWidth <=768)
+    checkIsMobile();
+
+    window.addEventListener('resize',checkIsMobile)
+    return ()=> window.removeEventListener('resize',checkIsMobile)
+  },[])
+
   return (
     <div className="App">
       <Navbar/>
@@ -17,7 +28,8 @@ function App() {
       <About/>
       <Project/>
       <Contact/>
-      <FloatingCTFTerminal/>
+      {!isMobile && <FloatingCTFTerminal/>}
+      {/* <FloatingCTFTerminal/> */}
     </div>
   );
 }

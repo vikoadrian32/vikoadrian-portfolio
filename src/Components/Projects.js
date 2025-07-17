@@ -60,7 +60,7 @@ const Project = () => {
             color: "orange",
             bgColor: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
             techStack : ['OSINT'],
-            source: '-'
+            source: 'https://docs.google.com/document/d/14NzhsxhN3Z-jV5jERSXlbzUB5P7D8-RsjPyFD7lj98k/edit?usp=sharing'
         },
        
         {

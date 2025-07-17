@@ -16,6 +16,7 @@ const FloatingCTFTerminal = () => {
   const user = 'ctf';
   const hostname = 'portfolio';
 
+
   // File system simulation
   const fileSystem = {
     '/': {
